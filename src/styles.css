@@ -1,4 +1,7 @@
-
+body {
+  background      : radial-gradient(rgb(233, 226, 226) 1px, transparent 1px);
+  background-size : 20px 20px;
+}
 
 .country {
   width: 1000px;
@@ -52,6 +55,7 @@
   margin: 0 auto;
   height: 40px;
   font-size: 35px;
+  padding: 10px;
 }
 
 .country-list__item {

@@ -5,8 +5,8 @@ const debounce = require('lodash.debounce');
 import './styles.css';
 
 import '@pnotify/core/dist/PNotify.css';
-import { notice, error } from '@pnotify/core';
 import '@pnotify/core/dist/BrightTheme.css';
+import { notice, error } from '@pnotify/core';
 import { defaults } from '@pnotify/core';
 defaults.closerHover = false;
 
@@ -23,7 +23,7 @@ function countryInputHandler(event) {
     const countryName = event.target.value;
 
     if (countryName === '') {
-        clearMarkup();
+        deleteMarkup();
         return;
     }
 
@@ -31,7 +31,7 @@ function countryInputHandler(event) {
     .then(countries => {
 
         if (countries.length > 10) {
-            clearMarkup();
+            deleteMarkup();
             createNotice('Too many matches found. Please enter a more specific query!');
             return;
         }
@@ -45,7 +45,7 @@ function countryInputHandler(event) {
 
     })
     .catch(error => {
-        clearMarkup();
+        deleteMarkup();
         createError('No matches found. Please try again!');
         return;
     });
@@ -80,7 +80,7 @@ function createMarkup(markupCreationFunction, requestResult) {
 }
 
 
-function clearMarkup() {
+function deleteMarkup() {
     countryContainer.innerHTML = '';
 }
 
